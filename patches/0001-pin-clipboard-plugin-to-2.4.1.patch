@@ -1,0 +1,11 @@
+--- a/package.json
++++ b/package.json
+@@ -19,7 +19,7 @@
+     "@emotion/react": "^11.14.0",
+     "@hpcc-js/wasm": "^2.35.3",
+     "@tauri-apps/api": "^2",
+-    "@tauri-apps/plugin-clipboard-manager": "^2.4.1",
++    "@tauri-apps/plugin-clipboard-manager": "2.4.1",
+     "@tauri-apps/plugin-dialog": "^2",
+     "@tauri-apps/plugin-opener": "^2",
+     "chart.js": "^4.5.1",

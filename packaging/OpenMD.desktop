@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=OpenMD
+Comment=简洁 美观 高效的 Markdown 查看器
+Exec=openmd %f
+Icon=openmd
+Terminal=false
+Categories=Utility;TextEditor;
+MimeType=text/markdown;text/x-markdown;
+StartupWMClass=openmd
