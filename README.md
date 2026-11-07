@@ -105,14 +105,21 @@ npx tauri build
 sha256sum -c SHA256SUMS
 ```
 
-当前产物：
+产物都在 Release 里（`v1.0.4-linux`），并附一个 `SHA256SUMS` 资产：
 
 | 文件 | 大小 | SHA-256 |
 |---|---|---|
-| `OpenMD_1.0.4_amd64.deb` | 21,504,876 B | `f4d7e3a8be323858be353ff101060aca2200148bf11981715294679fd1053745` |
-| `OpenMD_1.0.4_amd64.AppImage` | 102,435,320 B | `4bc4b4411e22fba4b5911c30912e9127deb79cd55c81d1e882d3f811334bcf3a` |
+| `OpenMD_1.0.4_amd64.deb` | 21,504,998 B | `06b2ae4bc0d10670fdca173bdea9ad073e0e679e3467a40e55a1eee190698f79` |
+| `OpenMD_1.0.4_amd64.AppImage` | 100,551,160 B | `0db447331bd2e24669c802e132cceaeccf1fd2126059303563d876b81a66f5ff` |
 
-> AppImage 约 97.7 MiB，超过 GitHub 单文件 100 MB 的仓库上限，所以它**放在 Release 资产里**（`v1.0.4-linux`），不在 git 树中；deb 已随仓库提交。
+```bash
+for f in OpenMD_1.0.4_amd64.deb OpenMD_1.0.4_amd64.AppImage SHA256SUMS; do
+  curl -LO "https://github.com/2508587544lgb-wq/OpenMD-Linux/releases/download/v1.0.4-linux/$f"
+done
+sha256sum -c SHA256SUMS
+```
+
+> 仓库里不放二进制：`.deb` 与 `.AppImage` 每次都由 `.github/workflows/build-linux.yml` 在打 tag 时从上游源码重新构建后挂到 Release。因为编译产物带时间戳、路径等元数据，**CI 构建与本机构建的字节不同**，所以校验和以 Release 里的 `SHA256SUMS` 为准；本机那次构建（我装在自己机器上实测过的那份）的校验和记在 [BUILD.md](BUILD.md) 末尾。
 
 每个产物的来源、编译命令、环境版本都写在 [BUILD.md](BUILD.md)，可逐条复现。CI 也会在打 tag 时自动重编并挂到 Release（见 `.github/workflows/build-linux.yml`）。
 

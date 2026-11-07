@@ -1,6 +1,5 @@
-# GitHub 单文件 100MB 上限：AppImage ~97.7 MiB 的二进制放进 Release，不进 git
-dist/*.AppImage
-dist/*.AppImage.zsync
+# 二进制不进 git：发布走 GitHub Release（由 CI 在打 tag 时构建并挂载）
+dist/
 
 # 构建产物
 node_modules/

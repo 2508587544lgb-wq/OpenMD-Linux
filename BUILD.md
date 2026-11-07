@@ -110,3 +110,14 @@ xdg-mime query default text/markdown      # → OpenMD.desktop
 ## 备注：deb 的依赖字段
 
 上游 `tauri.conf.json` 里写的 `depends` 包含 `libc6 (>= 2.39)`；Ubuntu 24.04 是 2.39，满足。在更老的发行版（22.04，glibc 2.35）上安装会因这个下限被拒——用 AppImage 代替。
+
+## 本机构建产物校验和（2026-11-08）
+
+我在这台机器上编出来、并实际安装 + 打开文件验证过的那两份：
+
+```
+f4d7e3a8be323858be353ff101060aca2200148bf11981715294679fd1053745  OpenMD_1.0.4_amd64.deb        (21,504,876 B)
+4bc4b4411e22fba4b5911c30912e9127deb79cd55c81d1e882d3f811334bcf3a  OpenMD_1.0.4_amd64.AppImage   (102,435,320 B)
+```
+
+CI（`.github/workflows/build-linux.yml`）从同一份源码重新构建，产出字节不同（deb 21,504,998 B / AppImage 100,551,160 B），**Release 上挂的是 CI 那份**，校验和见 Release 的 `SHA256SUMS` 资产。两者源码完全一致，仅编译环境与时间戳不同。
