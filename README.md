@@ -2,6 +2,8 @@
 
 [OpenMD](https://github.com/MuLiuSaMa/OpenMD) 是一款「为阅读而生的 Markdown 阅读器」：无边框窗口、沉浸阅读、渲染预览 / 源码双视图、左侧目录与滚动同步、多标签页、即时编辑。上游只提供 Windows 安装包，**这个仓库提供的是 Linux（x86_64）版本**，包含编译产物、安装脚本和完整的构建步骤。
 
+> **下载**：[Releases · v1.0.4-linux](https://github.com/2508587544lgb-wq/OpenMD-Linux/releases/tag/v1.0.4-linux)（deb 在这，AppImage 也在）
+>
 > **原作者 / Original author**：[MuLiuSaMa](https://github.com/MuLiuSaMa) · 上游仓库：<https://github.com/MuLiuSaMa/OpenMD>
 > 本项目不是上游官方发布，仅为 Linux 平台的非官方构建与打包。源码版权归原作者所有，按 **GPL-3.0** 分发。
 
